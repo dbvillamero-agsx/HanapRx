@@ -2,6 +2,24 @@
 
 Medicine finder web application for the Philippines. Search for medicines near you, compare prices across pharmacy branches, and check availability in real-time.
 
+# App Preview
+
+**WebApp**
+
+<img width="623" height="865" alt="image" src="https://github.com/user-attachments/assets/8936084e-2856-42c9-9497-a847c8cc4f03" />
+<img width="672" height="869" alt="image" src="https://github.com/user-attachments/assets/6fe02ebf-b860-4adf-ab73-1359ccce0fde" />
+<img width="1058" height="864" alt="image" src="https://github.com/user-attachments/assets/821ef68a-fedc-4eeb-92e8-243dfafd4366" />
+<img width="1091" height="867" alt="image" src="https://github.com/user-attachments/assets/1aec6ba8-0873-4e0a-98c9-0c3916ecf722" />
+<img width="1092" height="863" alt="image" src="https://github.com/user-attachments/assets/c4197343-ab22-4005-9a97-aa849bda516a" />
+
+
+**AdminApp**
+
+<img width="1675" height="859" alt="image" src="https://github.com/user-attachments/assets/63fa75b2-f98f-446a-86be-65ddc6376465" />
+<img width="1674" height="857" alt="image" src="https://github.com/user-attachments/assets/eb9555fd-9ffc-4e23-ad0b-b74da843b344" />
+<img width="1679" height="850" alt="image" src="https://github.com/user-attachments/assets/c7af499f-5064-4d56-99b0-b3f9007ed8ce" />
+
+
 ## Tech Stack
 
 **Frontend:** React 19, TypeScript, Vite, Tailwind CSS v4, React Router v6, TanStack Query, Axios, Google Maps API
