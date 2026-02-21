@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pharmacy {
+  id       Int      @id @default(autoincrement())
+  name     String
+  logoUrl  String?  @map("logo_url")
+  branches Branch[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("pharmacies")
+}
+
+model Branch {
+  id            Int         @id @default(autoincrement())
+  pharmacyId    Int         @map("pharmacy_id")
+  name          String
+  address       String
+  latitude      Float
+  longitude     Float
+  contactNumber String?     @map("contact_number")
+  businessHours String?     @map("business_hours")
+  pharmacy      Pharmacy    @relation(fields: [pharmacyId], references: [id], onDelete: Cascade)
+  inventory     Inventory[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("branches")
+}
+
+model Medicine {
+  id          Int         @id @default(autoincrement())
+  name        String
+  genericName String      @map("generic_name")
+  description String?
+  inventory   Inventory[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("medicines")
+}
+
+model Inventory {
+  id         Int      @id @default(autoincrement())
+  branchId   Int      @map("branch_id")
+  medicineId Int      @map("medicine_id")
+  stockCount Int      @default(0) @map("stock_count")
+  price      Float
+  branch     Branch   @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  medicine   Medicine @relation(fields: [medicineId], references: [id], onDelete: Cascade)
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([branchId, medicineId])
+  @@map("inventory")
+}
+
+model AdminUser {
+  id           Int    @id @default(autoincrement())
+  email        String @unique
+  passwordHash String @map("password_hash")
+  role         String @default("admin")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}
